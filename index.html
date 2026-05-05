@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Shubh Bhojan — Pure Veg & Jain Catering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;background:#FAF6EF;color:#1C1208;overflow-x:hidden}
+
+:root{
+  --cream:#FAF6EF;
+  --cream2:#F2EBD9;
+  --maroon:#7B1C1C;
+  --maroon-dark:#5A1010;
+  --saffron:#E07B2A;
+  --saffron-light:#F5A14A;
+  --gold:#C9922A;
+  --gold-light:#E8C46A;
+  --green:#2D6B45;
+  --jain-purple:#6B3FA0;
+  --ink:#1C1208;
+  --muted:#6B5B47;
+  --white:#FFFFFF;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--cream2)}
+::-webkit-scrollbar-thumb{background:var(--saffron);border-radius:3px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.9rem 5vw;
+  background:rgba(250,246,239,0.93);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(192,120,40,0.15);
+}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.logo-flame{font-size:1.6rem;line-height:1}
+.logo-text{display:flex;flex-direction:column;line-height:1.1}
+.logo-name{font-family:'Yeseva One',serif;font-size:1.2rem;color:var(--maroon)}
+.logo-tagline{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--maroon)}
+.nav-book{
+  background:var(--saffron);color:var(--white);
+  padding:.55rem 1.4rem;border-radius:100px;
+  font-size:.8rem;font-weight:500;letter-spacing:.05em;
+  text-decoration:none;transition:all .2s;
+  box-shadow:0 4px 14px rgba(224,123,42,.3);
+}
+.nav-book:hover{background:var(--maroon);transform:translateY(-1px)}
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:.4rem}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--maroon);margin:4px 0;transition:all .3s}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  padding:7rem 5vw 5rem;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(192,120,40,.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(123,28,28,.06) 0%, transparent 60%);
+}
+.hero-ornament{
+  position:absolute;top:15%;right:5vw;
+  font-size:min(28vw,280px);opacity:.04;line-height:1;
+  font-family:'Yeseva One',serif;color:var(--maroon);
+  pointer-events:none;user-select:none;
+  animation:drift 12s ease-in-out infinite;
+}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-20px) rotate(1deg)}}
+
+.hero-content{position:relative;max-width:680px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.8rem}
+.badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.35rem .9rem;border-radius:100px;
+  font-size:.72rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  border:1px solid;
+}
+.badge-green{background:rgba(45,107,69,.08);color:var(--green);border-color:rgba(45,107,69,.2)}
+.badge-purple{background:rgba(107,63,160,.08);color:var(--jain-purple);border-color:rgba(107,63,160,.2)}
+.badge-gold{background:rgba(201,146,42,.1);color:var(--gold);border-color:rgba(201,146,42,.2)}
+.badge .dot{width:5px;height:5px;border-radius:50%;background:currentColor}
+
+.hero-title{
+  font-family:'Yeseva One',serif;
+  font-size:clamp(2.6rem,6vw,5rem);
+  line-height:1.1;color:var(--maroon);
+  margin-bottom:1.2rem;
+}
+.hero-title .accent{
+  font-family:'Lora',serif;font-style:italic;font-weight:400;
+  color:var(--saffron);
+}
+.hero-sub{
+  font-family:'Lora',serif;
+  font-size:clamp(1rem,2vw,1.2rem);line-height:1.75;
+  color:var(--muted);max-width:560px;margin-bottom:2.2rem;
+}
+.hero-sub strong{color:var(--maroon);font-weight:600}
+
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{
+  background:var(--saffron);color:var(--white);
+  padding:.85rem 2.2rem;border-radius:100px;
+  font-size:.9rem;font-weight:500;
+  text-decoration:none;transition:all .25s;
+  box-shadow:0 6px 20px rgba(224,123,42,.35);
+  display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn-primary:hover{background:var(--maroon);transform:translateY(-2px);box-shadow:0 10px 28px rgba(123,28,28,.3)}
+.btn-outline{
+  background:transparent;color:var(--maroon);
+  padding:.83rem 2rem;border-radius:100px;
+  font-size:.9rem;font-weight:500;
+  text-decoration:none;transition:all .25s;
+  border:2px solid var(--maroon);
+  display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn-outline:hover{background:var(--maroon);color:var(--white)}
+
+.hero-stats{
+  display:flex;gap:2.5rem;flex-wrap:wrap;
+  padding-top:2rem;
+  border-top:1px solid rgba(192,120,40,.2);
+}
+.stat{display:flex;flex-direction:column}
+.stat-num{
+  font-family:'Yeseva One',serif;
+  font-size:2.2rem;color:var(--maroon);line-height:1;
+}
+.stat-num sup{font-size:1rem;vertical-align:super}
+.stat-label{font-size:.72rem;color:var(--muted);letter-spacing:.05em;margin-top:.2rem}
+
+/* ── TICKER ── */
+.ticker{
+  background:var(--maroon);color:var(--white);
+  padding:.8rem 0;overflow:hidden;
+}
+.ticker-inner{
+  display:flex;width:max-content;gap:0;
+  animation:tick 25s linear infinite;
+}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{
+  display:flex;align-items:center;gap:.7rem;
+  padding:0 2rem;
+  font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;
+}
+.ticker-sep{color:var(--gold-light);font-size:1.2rem}
+
+/* ── SECTION COMMONS ── */
+.section{padding:5rem 5vw}
+.section-label{
+  font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--saffron);margin-bottom:.7rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.section-label::before{content:'';display:block;width:20px;height:1px;background:var(--saffron)}
+.section-title{
+  font-family:'Yeseva One',serif;
+  font-size:clamp(1.8rem,4vw,3rem);
+  color:var(--maroon);line-height:1.2;margin-bottom:.8rem;
+}
+.section-sub{
+  font-family:'Lora',serif;font-style:italic;
+  font-size:1rem;color:var(--muted);max-width:500px;line-height:1.7;
+  margin-bottom:3rem;
+}
+.section-center{text-align:center}
+.section-center .section-label{justify-content:center}
+.section-center .section-label::before{display:none}
+.section-center .section-sub{margin:0 auto 3rem}
+
+/* ── DIVIDER ── */
+.divider{
+  display:flex;align-items:center;justify-content:center;
+  gap:1rem;padding:1rem 5vw;
+  color:var(--gold);font-size:1.2rem;
+}
+.divider::before,.divider::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,146,42,.3),transparent);
+}
+
+/* ── JAIN BLOCK ── */
+.jain-section{
+  background:var(--maroon);color:var(--white);
+  padding:4rem 5vw;position:relative;overflow:hidden;
+}
+.jain-section::before{
+  content:'ॐ';
+  position:absolute;right:-2rem;top:50%;transform:translateY(-50%);
+  font-size:18rem;opacity:.04;line-height:1;
+  font-family:'Yeseva One',serif;pointer-events:none;
+}
+.jain-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;
+  max-width:1100px;margin:0 auto;
+}
+.jain-label{
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold-light);margin-bottom:.8rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.jain-label::before{content:'';display:block;width:20px;height:1px;background:var(--gold-light)}
+.jain-title{
+  font-family:'Yeseva One',serif;
+  font-size:clamp(2rem,4vw,3.2rem);
+  color:var(--white);line-height:1.15;margin-bottom:1rem;
+}
+.jain-title em{font-family:'Lora',serif;font-style:italic;color:var(--gold-light)}
+.jain-desc{
+  font-family:'Lora',serif;font-style:italic;
+  font-size:1rem;line-height:1.8;color:rgba(255,255,255,.78);
+  margin-bottom:2rem;
+}
+.jain-checklist{display:flex;flex-direction:column;gap:.9rem}
+.jain-check{
+  display:flex;align-items:flex-start;gap:.8rem;
+  font-size:.9rem;color:rgba(255,255,255,.88);line-height:1.5;
+}
+.jain-check-icon{
+  flex-shrink:0;width:20px;height:20px;border-radius:50%;
+  background:rgba(232,196,106,.2);border:1px solid var(--gold-light);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;color:var(--gold-light);margin-top:1px;
+}
+.jain-card{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:20px;padding:2rem;
+  backdrop-filter:blur(10px);
+}
+.jain-card-title{
+  font-family:'Yeseva One',serif;font-size:1.3rem;
+  color:var(--gold-light);margin-bottom:1.2rem;
+  padding-bottom:.8rem;border-bottom:1px solid rgba(255,255,255,.1);
+}
+.jain-feature{
+  display:flex;align-items:center;gap:.9rem;
+  padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.06);
+  font-size:.85rem;color:rgba(255,255,255,.8);
+}
+.jain-feature:last-child{border-bottom:none}
+.jain-feature-icon{font-size:1.2rem;flex-shrink:0}
+
+/* ── MENUS ── */
+.menus-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.5rem;
+}
+.menu-card{
+  background:var(--white);border-radius:20px;padding:2rem;
+  border:2px solid transparent;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.menu-card:hover{border-color:var(--saffron);transform:translateY(-4px);box-shadow:0 16px 40px rgba(224,123,42,.15)}
+.menu-card.popular{border-color:var(--saffron);background:var(--saffron)}
+.menu-card.popular .menu-tradition,
+.menu-card.popular .menu-name,
+.menu-card.popular .menu-price,
+.menu-card.popular .menu-item{color:var(--white)}
+.menu-card.popular .menu-desc{color:rgba(255,255,255,.8)}
+.menu-card.popular .menu-item-check{color:rgba(255,255,255,.7)}
+.popular-badge{
+  position:absolute;top:1.2rem;right:1.2rem;
+  background:var(--maroon);color:var(--white);
+  font-size:.65rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  padding:.3rem .8rem;border-radius:100px;
+}
+.menu-tradition{
+  font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--saffron);margin-bottom:.5rem;
+}
+.menu-name{
+  font-family:'Yeseva One',serif;font-size:1.6rem;
+  color:var(--maroon);line-height:1.2;margin-bottom:.3rem;
+}
+.menu-price{
+  font-family:'Yeseva One',serif;font-size:2rem;
+  color:var(--maroon);margin:.8rem 0 1rem;
+}
+.menu-price span{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:400;color:var(--muted)}
+.menu-card.popular .menu-price span{color:rgba(255,255,255,.7)}
+.menu-items{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem}
+.menu-item{display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:var(--ink);line-height:1.4}
+.menu-item-check{color:var(--green);flex-shrink:0;margin-top:2px}
+.menu-btn{
+  display:block;text-align:center;text-decoration:none;
+  padding:.75rem 1rem;border-radius:100px;
+  font-size:.82rem;font-weight:500;letter-spacing:.04em;
+  transition:all .2s;
+}
+.menu-btn-dark{background:var(--maroon);color:var(--white)}
+.menu-btn-dark:hover{background:var(--maroon-dark)}
+.menu-btn-light{background:rgba(255,255,255,.2);color:var(--white);border:1px solid rgba(255,255,255,.4)}
+.menu-btn-light:hover{background:rgba(255,255,255,.35)}
+
+/* ── OCCASIONS ── */
+.occasions-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.2rem;
+}
+.occasion-card{
+  background:var(--white);border-radius:18px;
+  padding:1.8rem 1.5rem;text-align:center;
+  transition:all .25s;cursor:default;
+  border:1px solid rgba(192,120,40,.1);
+}
+.occasion-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(123,28,28,.1);border-color:var(--saffron)}
+.occasion-icon{font-size:2.5rem;margin-bottom:.8rem;display:block}
+.occasion-name{
+  font-family:'Lora',serif;font-size:1.1rem;font-weight:600;
+  color:var(--maroon);margin-bottom:.3rem;
+}
+.occasion-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+
+/* ── WHY US ── */
+.why-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem;
+}
+.why-card{
+  background:var(--white);border-radius:18px;padding:2rem;
+  border:1px solid rgba(192,120,40,.1);
+  transition:all .25s;
+}
+.why-card:hover{box-shadow:0 10px 28px rgba(0,0,0,.07);transform:translateY(-3px)}
+.why-icon{font-size:2rem;margin-bottom:1rem;display:block}
+.why-title{
+  font-family:'Lora',serif;font-size:1.05rem;font-weight:600;
+  color:var(--maroon);margin-bottom:.5rem;
+}
+.why-desc{font-size:.83rem;color:var(--muted);line-height:1.65}
+
+/* ── COMPARE ── */
+.compare-wrap{overflow-x:auto;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.07)}
+table{width:100%;border-collapse:collapse;background:var(--white);min-width:600px}
+th{
+  padding:1rem 1.2rem;text-align:left;
+  font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--maroon);color:var(--white);
+}
+th:first-child{border-radius:16px 0 0 0}
+th:last-child{border-radius:0 16px 0 0}
+td{
+  padding:.9rem 1.2rem;font-size:.85rem;
+  border-bottom:1px solid rgba(192,120,40,.08);
+  color:var(--ink);
+}
+tr:last-child td{border-bottom:none}
+tr:last-child td:first-child{border-radius:0 0 0 16px}
+tr:last-child td:last-child{border-radius:0 0 16px 0}
+tr.highlight{background:rgba(224,123,42,.05)}
+tr.highlight td{font-weight:500;color:var(--maroon)}
+.check-yes{color:var(--green);font-size:1rem}
+.check-no{color:#ccc;font-size:.9rem}
+.check-part{color:var(--saffron)}
+
+/* ── TESTIMONIALS ── */
+.testimonials-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;
+}
+.testi-card{
+  background:var(--white);border-radius:20px;padding:2rem;
+  border:1px solid rgba(192,120,40,.1);
+  transition:all .25s;
+}
+.testi-card:hover{box-shadow:0 10px 28px rgba(0,0,0,.08);transform:translateY(-2px)}
+.testi-quote{
+  font-family:'Lora',serif;font-style:italic;
+  font-size:.93rem;line-height:1.8;color:var(--ink);
+  margin-bottom:1.2rem;
+}
+.testi-quote::before{
+  content:'\201C';font-size:3rem;line-height:.5;
+  color:var(--saffron);display:block;margin-bottom:.4rem;
+  font-family:'Yeseva One',serif;
+}
+.testi-author{display:flex;align-items:center;gap:.8rem}
+.testi-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--maroon);color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Yeseva One',serif;font-size:1rem;
+  flex-shrink:0;
+}
+.testi-name{font-size:.85rem;font-weight:500;color:var(--maroon)}
+.testi-event{font-size:.72rem;color:var(--muted);margin-top:.1rem}
+.testi-stars{color:var(--gold);font-size:.85rem;margin-bottom:.2rem}
+
+/* ── FAQ ── */
+.faq-list{max-width:720px;margin:0 auto}
+.faq-item{
+  border-bottom:1px solid rgba(192,120,40,.15);
+  overflow:hidden;
+}
+.faq-q{
+  width:100%;background:none;border:none;text-align:left;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.3rem 0;gap:1rem;
+  font-family:'Lora',serif;font-size:1rem;font-weight:500;
+  color:var(--maroon);
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--saffron)}
+.faq-icon{
+  flex-shrink:0;width:24px;height:24px;border-radius:50%;
+  border:1.5px solid var(--saffron);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;color:var(--saffron);
+  transition:transform .3s,background .2s;
+}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--saffron);color:var(--white)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .35s ease,padding .3s;
+  font-size:.88rem;line-height:1.75;color:var(--muted);
+}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:1.2rem}
+
+/* ── CONTACT SECTION ── */
+.contact-section{
+  background:linear-gradient(135deg,var(--maroon) 0%,#3A0D0D 100%);
+  padding:5rem 5vw;position:relative;overflow:hidden;
+  color:var(--white);
+}
+.contact-section::after{
+  content:'शुभ भोजन';
+  position:absolute;bottom:-2rem;right:-1rem;
+  font-family:'Yeseva One',serif;font-size:12vw;
+  opacity:.05;line-height:1;pointer-events:none;color:var(--white);
+  white-space:nowrap;
+}
+.contact-inner{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;
+  position:relative;
+}
+.contact-title{
+  font-family:'Yeseva One',serif;
+  font-size:clamp(2rem,4vw,3rem);color:var(--white);
+  line-height:1.2;margin-bottom:.8rem;
+}
+.contact-desc{
+  font-family:'Lora',serif;font-style:italic;
+  font-size:.95rem;color:rgba(255,255,255,.7);line-height:1.7;
+  margin-bottom:2rem;
+}
+.contact-cards{display:flex;flex-direction:column;gap:.9rem}
+.contact-card{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;padding:1.1rem 1.4rem;
+  display:flex;align-items:center;gap:1rem;
+  text-decoration:none;color:var(--white);
+  transition:all .2s;
+}
+.contact-card:hover{background:rgba(255,255,255,.14);transform:translateX(4px)}
+.contact-card-icon{font-size:1.3rem;flex-shrink:0}
+.contact-card-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.1rem}
+.contact-card-val{font-size:.95rem;font-weight:500}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-group label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.form-group input,.form-group select,.form-group textarea{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  border-radius:10px;padding:.75rem 1rem;
+  font-size:.88rem;color:var(--white);font-family:'DM Sans',sans-serif;
+  outline:none;transition:border-color .2s;
+  -webkit-appearance:none;
+}
+.form-group select option{background:var(--maroon-dark);color:var(--white)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.35)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold-light)}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-submit{
+  background:var(--saffron);color:var(--white);
+  border:none;cursor:pointer;
+  padding:1rem;border-radius:100px;
+  font-size:.9rem;font-weight:500;font-family:'DM Sans',sans-serif;
+  transition:all .25s;
+  box-shadow:0 6px 20px rgba(224,123,42,.4);
+}
+.form-submit:hover{background:#C8691C;transform:translateY(-2px)}
+
+/* ── FOOTER ── */
+footer{
+  background:#0F0500;color:rgba(255,255,255,.5);
+  padding:3rem 5vw 1.5rem;
+}
+.footer-inner{
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;
+  margin-bottom:2rem;
+}
+.footer-brand .logo-name{font-family:'Yeseva One',serif;font-size:1.3rem;color:var(--white)}
+.footer-brand .logo-tagline{color:var(--gold)}
+.footer-tagline{
+  font-family:'Lora',serif;font-style:italic;
+  font-size:.85rem;line-height:1.7;color:rgba(255,255,255,.45);
+  margin-top:.8rem;max-width:280px;
+}
+.footer-col-title{
+  font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);margin-bottom:.9rem;
+}
+.footer-links{display:flex;flex-direction:column;gap:.5rem}
+.footer-links a{font-size:.83rem;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--saffron)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.06);
+  padding-top:1.2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:.5rem;
+  font-size:.75rem;
+}
+.footer-mantra{
+  font-family:'Lora',serif;font-style:italic;
+  color:var(--gold);font-size:.8rem;
+}
+
+/* ── STICKY MOBILE BAR ── */
+.sticky-bar{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:300;
+  background:var(--white);border-top:1px solid rgba(192,120,40,.2);
+  padding:.8rem 1.2rem;
+  box-shadow:0 -4px 20px rgba(0,0,0,.1);
+  gap:.8rem;
+  align-items:center;
+}
+.sticky-bar-cta{
+  flex:1;background:var(--saffron);color:var(--white);
+  padding:.7rem;border-radius:100px;border:none;cursor:pointer;
+  font-size:.85rem;font-weight:500;font-family:'DM Sans',sans-serif;
+  text-align:center;text-decoration:none;
+  transition:background .2s;
+}
+.sticky-bar-cta:hover{background:var(--maroon)}
+.sticky-bar-wa{
+  width:44px;height:44px;border-radius:50%;
+  background:#25D366;color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;text-decoration:none;
+  transition:transform .2s;
+}
+.sticky-bar-wa:hover{transform:scale(1.1)}
+
+/* ── DIET TOGGLE ── */
+.diet-toggle{display:flex;gap:.4rem;margin:.8rem 0 1rem;flex-wrap:wrap}
+.diet-btn{
+  padding:.35rem .9rem;border-radius:100px;border:1.5px solid rgba(123,28,28,.2);
+  background:transparent;color:var(--muted);font-size:.75rem;font-weight:500;
+  cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;
+}
+.diet-btn.active{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+.diet-btn:hover{border-color:var(--maroon);color:var(--maroon)}
+.diet-btn-white{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7)}
+.diet-btn-white.active{background:rgba(255,255,255,.25);color:#fff;border-color:#fff}
+.diet-btn-white:hover{border-color:#fff;color:#fff}
+.diet-btn-plat{border-color:rgba(176,196,222,.3);color:rgba(176,196,222,.7)}
+.diet-btn-plat.active{background:rgba(176,196,222,.2);color:#b0c4de;border-color:#b0c4de}
+.diet-btn-plat:hover{border-color:#b0c4de;color:#b0c4de}
+
+
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-hamburger{display:block}
+  .hero-title{font-size:2.4rem}
+  .jain-inner{grid-template-columns:1fr}
+  .contact-inner{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .sticky-bar{display:flex}
+  body{padding-bottom:70px}
+}
+@media(max-width:600px){
+  .hero{padding:6rem 5vw 4rem}
+  .hero-stats{gap:1.5rem}
+  .stat-num{font-size:1.8rem}
+  .footer-inner{grid-template-columns:1fr}
+  .occasions-grid{grid-template-columns:1fr 1fr}
+  .menus-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <span class="logo-flame">🪔</span>
+    <span class="logo-text">
+      <span class="logo-name">Shubh Bhojan</span>
+      <span class="logo-tagline">शुभ भोजन • सात्त्विक आहार</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#menus">Menus</a></li>
+    <li><a href="#jain">Jain</a></li>
+    <li><a href="#occasions">Occasions</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a class="nav-book" href="#contact">Book Catering</a>
+  <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament">🌿</div>
+  <div class="hero-content">
+    <div class="hero-badges">
+      <span class="badge badge-green"><span class="dot"></span>100% Pure Veg</span>
+      <span class="badge badge-purple"><span class="dot"></span>Jain Friendly</span>
+      <span class="badge badge-gold"><span class="dot"></span>Sattvic Kitchen</span>
+    </div>
+    <h1 class="hero-title">
+      Sacred food,<br>cooked with<br><em>pure intention</em>
+    </h1>
+    <p class="hero-sub">
+      Maharaj cooks from generations of temple tradition — <strong>Iyer, Iyengar, Marwari and Gujarati.</strong> With a dedicated Jain kitchen, separate utensils, and certified ingredients. For weddings, pujas and every auspicious occasion.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#contact">Request a Quote →</a>
+      <a class="btn-outline" href="#menus">View Menus</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">500<sup>+</sup></span><span class="stat-label">Events Catered</span></div>
+      <div class="stat"><span class="stat-num">15<sup>+</sup></span><span class="stat-label">Years of Tradition</span></div>
+      <div class="stat"><span class="stat-num">4</span><span class="stat-label">Cities Served</span></div>
+      <div class="stat"><span class="stat-num">24h</span><span class="stat-label">Quote Turnaround</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="ticker">
+    <span class="ticker-item">🌿 100% Pure Vegetarian <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">🙏 Dedicated Jain Kitchen <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">🍚 Cow Ghee & Fresh Produce <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">📍 Vijayawada · Guntur · Bangalore · California <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">⏱ Menu in 24 Hours <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">🧑‍🍳 Maharaj Cooks — Temple Traditions <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">🌿 100% Pure Vegetarian <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">🙏 Dedicated Jain Kitchen <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">🍚 Cow Ghee & Fresh Produce <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">📍 Vijayawada · Guntur · Bangalore · California <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">⏱ Menu in 24 Hours <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">🧑‍🍳 Maharaj Cooks — Temple Traditions <span class="ticker-sep">·</span></span>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="section section-center fade-in">
+  <p class="section-label">हमारी विरासत</p>
+  <h2 class="section-title">Cooked the way our grandmothers did</h2>
+  <p class="section-sub">Our Maharaj cooks carry generations of temple and family cooking traditions. Every meal is prepared in a separate sattvic kitchen using cow ghee, fresh produce and pure intention.</p>
+</section>
+<div class="divider">✦</div>
+
+<!-- JAIN SECTION -->
+<section class="jain-section" id="jain">
+  <div class="jain-inner">
+    <div>
+      <p class="jain-label">अहिंसा परमो धर्मः</p>
+      <h2 class="jain-title">A dedicated <em>Jain</em> kitchen</h2>
+      <p class="jain-desc">For our Jain patrons we maintain a strictly separate cooking station with separate utensils, ingredients sourced from certified suppliers, and meals prepared by cooks trained in Jain dietary principles.</p>
+      <div class="jain-checklist">
+        <div class="jain-check"><span class="jain-check-icon">✓</span>No onion, garlic, potato, carrot or any root vegetable</div>
+        <div class="jain-check"><span class="jain-check-icon">✓</span>Filtered water and fresh-pressed ingredients only</div>
+        <div class="jain-check"><span class="jain-check-icon">✓</span>Option to serve before sunset (Chauvihar)</div>
+        <div class="jain-check"><span class="jain-check-icon">✓</span>Separate serving staff and crockery</div>
+        <div class="jain-check"><span class="jain-check-icon">✓</span>Ingredients certified by Jain-approved suppliers</div>
+      </div>
+    </div>
+    <div class="jain-card">
+      <div class="jain-card-title">✦ Pure Jain Menu Includes</div>
+      <div class="jain-feature"><span class="jain-feature-icon">🍌</span>Raw banana & paneer specials</div>
+      <div class="jain-feature"><span class="jain-feature-icon">🫓</span>Bajra roti, dal, kadhi</div>
+      <div class="jain-feature"><span class="jain-feature-icon">🍬</span>Mohanthal, Shrikhand, Basundi</div>
+      <div class="jain-feature"><span class="jain-feature-icon">🧘</span>Paryushana-grade purity available</div>
+      <div class="jain-feature"><span class="jain-feature-icon">🌙</span>Chauvihar service on request</div>
+      <div style="margin-top:1.5rem;padding:1rem;background:rgba(232,196,106,.12);border-radius:12px;font-size:.82rem;color:var(--gold-light);text-align:center;line-height:1.6">
+        Starting at <strong style="font-size:1.2rem;color:var(--gold-light)">₹850</strong> / plate
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENUS -->
+<section class="section" id="menus">
+  <div class="section-center">
+    <p class="section-label">मेनू</p>
+    <h2 class="section-title">Our Signature Menus</h2>
+    <p class="section-sub">Four tiers. Every dietary tradition. One pure kitchen.</p>
+    <p style="font-size:.82rem;color:var(--muted);margin-top:-.5rem;margin-bottom:2rem;font-family:'Lora',serif;font-style:italic">Each tier is available in Veg, Jain, or Mixed — just select your preference on each card.</p>
+  </div>
+  <div class="menus-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+
+    <!-- BRONZE -->
+    <div class="menu-card fade-in" style="border-top:4px solid #CD7F32">
+      <p class="menu-tradition" style="color:#CD7F32">🥉 Bronze</p>
+      <h3 class="menu-name">Essential Bhojan</h3>
+      <div class="menu-price" style="font-size:1.4rem"><span style="font-size:.75rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:400">Approximately </span>₹400 <span>/ plate</span></div>
+      <!-- Dietary toggle -->
+      <div class="diet-toggle" id="toggle-bronze">
+        <button class="diet-btn active" onclick="switchDiet('bronze','veg',this)">🌿 Veg</button>
+        <button class="diet-btn" onclick="switchDiet('bronze','jain',this)">🙏 Jain</button>
+        <button class="diet-btn" onclick="switchDiet('bronze','mixed',this)">🍽 Mixed</button>
+      </div>
+      <div class="menu-items" id="bronze-veg">
+        <div class="menu-item"><span class="menu-item-check">✓</span>Dal, Rice & 2 Sabzis (default: Dal Tadka + Aloo Gobi)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Roti / Phulka (default: Wheat)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Raita or Salad</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>1 Sweet (default: Gulab Jamun)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Papad, Pickle, Water</div>
+      </div>
+      <div class="menu-items" id="bronze-jain" style="display:none">
+        <div class="menu-item"><span class="menu-item-check">✓</span>Jain Dal + 2 Sabzis (no root veg, default: Turai + Lauki)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Bajra / Jowar Roti (default: Bajra)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Filtered water & fresh ingredients</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>1 Jain Sweet (default: Mohanthal)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Separate crockery & serving staff</div>
+      </div>
+      <div class="menu-items" id="bronze-mixed" style="display:none">
+        <div class="menu-item"><span class="menu-item-check">✓</span>Veg section + Jain section served separately</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Dal, Rice, 2 Sabzis for each section</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Labelled serving stations</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>1 Sweet per section</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Papad, Pickle, Water</div>
+      </div>
+      <a class="menu-btn menu-btn-dark" href="#contact">Choose Bronze</a>
+    </div>
+
+    <!-- SILVER -->
+    <div class="menu-card fade-in" style="border-top:4px solid #A8A9AD">
+      <p class="menu-tradition" style="color:#888">🥈 Silver</p>
+      <h3 class="menu-name">Classic Bhojan</h3>
+      <div class="menu-price" style="font-size:1.4rem"><span style="font-size:.75rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:400">Approximately </span>₹650 <span>/ plate</span></div>
+      <div class="diet-toggle" id="toggle-silver">
+        <button class="diet-btn active" onclick="switchDiet('silver','veg',this)">🌿 Veg</button>
+        <button class="diet-btn" onclick="switchDiet('silver','jain',this)">🙏 Jain</button>
+        <button class="diet-btn" onclick="switchDiet('silver','mixed',this)">🍽 Mixed</button>
+      </div>
+      <div class="menu-items" id="silver-veg">
+        <div class="menu-item"><span class="menu-item-check">✓</span>Dal + Kadhi + 3 Sabzis (default: Palak Paneer, Jeera Aloo, Bhindi)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Rice + 2 Roti options (default: Wheat + Paratha)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Raita, Salad, Papad</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>2 Sweets (default: Kheer + Halwa)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Sambar, Rasam, Curd Rice option</div>
+      </div>
+      <div class="menu-items" id="silver-jain" style="display:none">
+        <div class="menu-item"><span class="menu-item-check">✓</span>Jain Dal + 3 Sabzis (default: Raw Banana, Tinda, Tofu)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Bajra Roti + Steamed Rice</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Kadhi, Raita (no onion)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>2 Jain Sweets (default: Shrikhand + Mohanthal)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Chauvihar option available</div>
+      </div>
+      <div class="menu-items" id="silver-mixed" style="display:none">
+        <div class="menu-item"><span class="menu-item-check">✓</span>Full Veg + Full Jain sections</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>3 Sabzis each, separate stations</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>2 Sweets per section</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Dedicated Jain serving staff</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Clear dietary labels on all dishes</div>
+      </div>
+      <a class="menu-btn menu-btn-dark" href="#contact">Choose Silver</a>
+    </div>
+
+    <!-- GOLD -->
+    <div class="menu-card popular fade-in" style="border-top:4px solid var(--gold-light)">
+      <span class="popular-badge">Most Popular</span>
+      <p class="menu-tradition" style="color:rgba(255,255,255,.8)">🥇 Gold</p>
+      <h3 class="menu-name">Grand Bhojan</h3>
+      <div class="menu-price"><span style="font-size:.75rem;color:rgba(255,255,255,.7);font-family:'DM Sans',sans-serif;font-weight:400">Approximately </span>₹1,000 <span>/ plate</span></div>
+      <div class="diet-toggle" id="toggle-gold">
+        <button class="diet-btn diet-btn-white active" onclick="switchDiet('gold','veg',this)">🌿 Veg</button>
+        <button class="diet-btn diet-btn-white" onclick="switchDiet('gold','jain',this)">🙏 Jain</button>
+        <button class="diet-btn diet-btn-white" onclick="switchDiet('gold','mixed',this)">🍽 Mixed</button>
+      </div>
+      <div class="menu-items" id="gold-veg">
+        <div class="menu-item"><span class="menu-item-check">✓</span>15 items: Dal Makhani, Shahi Paneer, 4 Sabzis (default: Malai Kofta, Palak, Mix Veg, Bhindi)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Hot Pooris + Naan + Rice</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Live chaat counter</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>3 Sweets (default: Gulab Jamun, Kheer, Gajar Halwa)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Welcome drink + Chaas</div>
+      </div>
+      <div class="menu-items" id="gold-jain" style="display:none">
+        <div class="menu-item"><span class="menu-item-check">✓</span>15 Jain items: Paneer Specials, 4 Sabzis (no root veg)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Bajra Pooris + Rice (filtered water)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Jain chaat counter</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>3 Jain Sweets (default: Mohanthal, Shrikhand, Basundi)</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Chauvihar option + separate Jain staff</div>
+      </div>
+      <div class="menu-items" id="gold-mixed" style="display:none">
+        <div class="menu-item"><span class="menu-item-check">✓</span>Full Gold Veg + Full Gold Jain spread</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Two live counters — Veg & Jain</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>3 Sweets per section</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Dedicated teams for each section</div>
+        <div class="menu-item"><span class="menu-item-check">✓</span>Welcome drinks for all guests</div>
+      </div>
+      <a class="menu-btn menu-btn-light" href="#contact">Choose Gold</a>
+    </div>
+
+    <!-- PLATINUM -->
+    <div class="menu-card fade-in" style="border-top:4px solid #b0c4de;background:linear-gradient(135deg,#1C1208 0%,#2d1a0e 100%);color:#fff">
+      <p class="menu-tradition" style="color:#b0c4de">💎 Platinum</p>
+      <h3 class="menu-name" style="color:#fff">Royal Maharaj Feast</h3>
+      <div class="menu-price" style="color:#b0c4de"><span style="font-size:.75rem;color:rgba(176,196,222,.7);font-family:'DM Sans',sans-serif;font-weight:400">Approximately </span>₹1,500 <span style="color:rgba(176,196,222,.7)">/ plate</span></div>
+      <div class="diet-toggle" id="toggle-platinum">
+        <button class="diet-btn diet-btn-plat active" onclick="switchDiet('platinum','veg',this)">🌿 Veg</button>
+        <button class="diet-btn diet-btn-plat" onclick="switchDiet('platinum','jain',this)">🙏 Jain</button>
+        <button class="diet-btn diet-btn-plat" onclick="switchDiet('platinum','mixed',this)">🍽 Mixed</button>
+      </div>
+      <div class="menu-items" id="platinum-veg">
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>25+ items: Full regional Maharaj thali</div>
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>Live dosa, chaat & puri counters</div>
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>5 Sweets (default: Gulab Jamun, Rasmalai, Halwa, Kheer, Barfi)</div>
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>Welcome mocktail + Thandai</div>
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>Dedicated event lead, floral décor for food station</div>
+      </div>
+      <div class="menu-items" id="platinum-jain" style="display:none">
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>25+ Jain items — Paryushana-grade purity</div>
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>Live Jain counter (Jain chaat, Jain puri)</div>
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>5 Jain Sweets (default: Mohanthal, Shrikhand, Basundi, Peda, Laddu)</div>
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>Chauvihar service + certified suppliers</div>
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>Dedicated Jain event lead + décor</div>
+      </div>
+      <div class="menu-items" id="platinum-mixed" style="display:none">
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>Full Platinum Veg + Full Platinum Jain</div>
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>Completely separate kitchens on site</div>
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>5 Sweets per section</div>
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>Two dedicated event leads</div>
+        <div class="menu-item" style="color:rgba(255,255,255,.85)"><span class="menu-item-check" style="color:#b0c4de">✓</span>Premium floral décor for both stations</div>
+      </div>
+      <a class="menu-btn" href="#contact" style="background:#b0c4de;color:#1C1208;font-weight:600">Choose Platinum</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- OCCASIONS -->
+<section class="section" id="occasions" style="background:var(--cream2)">
+  <div class="section-center">
+    <p class="section-label">अवसर</p>
+    <h2 class="section-title">For Every Auspicious Occasion</h2>
+    <p class="section-sub">From intimate pujas to grand weddings, we bring the same sacred care to every plate.</p>
+  </div>
+  <div class="occasions-grid">
+    <div class="occasion-card fade-in">
+      <span class="occasion-icon">💍</span>
+      <div class="occasion-name">Weddings</div>
+      <div class="occasion-desc">Multi-day vivah catering with full ceremony spread</div>
+    </div>
+    <div class="occasion-card fade-in">
+      <span class="occasion-icon">🪔</span>
+      <div class="occasion-name">Pujas & Havans</div>
+      <div class="occasion-desc">Prasad & bhog preparation by trained cooks</div>
+    </div>
+    <div class="occasion-card fade-in">
+      <span class="occasion-icon">📿</span>
+      <div class="occasion-name">Upanayanam</div>
+      <div class="occasion-desc">Traditional thread ceremony feasts</div>
+    </div>
+    <div class="occasion-card fade-in">
+      <span class="occasion-icon">🏠</span>
+      <div class="occasion-name">Griha Pravesh</div>
+      <div class="occasion-desc">Housewarming bhojan for new beginnings</div>
+    </div>
+    <div class="occasion-card fade-in">
+      <span class="occasion-icon">🎂</span>
+      <div class="occasion-name">Birthdays & Namkaran</div>
+      <div class="occasion-desc">Sattvic spreads for family celebrations</div>
+    </div>
+    <div class="occasion-card fade-in">
+      <span class="occasion-icon">🕌</span>
+      <div class="occasion-name">Temple Events</div>
+      <div class="occasion-desc">Bhog, prasad and community langar</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section">
+  <div class="section-center">
+    <p class="section-label">हमारी विशेषता</p>
+    <h2 class="section-title">Why families choose us</h2>
+    <p class="section-sub">Where other caterers stop at vegetarian, we go further.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card fade-in">
+      <span class="why-icon">🧑‍🍳</span>
+      <div class="why-title">Hereditary Maharaj Cooks</div>
+      <div class="why-desc">Our cooks come from Iyer, Iyengar, Madhwa, Marwari and Gujarati temple cooking lineages — not catering school graduates.</div>
+    </div>
+    <div class="why-card fade-in">
+      <span class="why-icon">🙏</span>
+      <div class="why-title">The Only True Jain Caterer</div>
+      <div class="why-desc">Separate kitchen, utensils, staff and certified ingredients. Not a "Jain option" — a fully independent Jain cooking station.</div>
+    </div>
+    <div class="why-card fade-in">
+      <span class="why-icon">🌿</span>
+      <div class="why-title">Sattvic & Pure Kitchen</div>
+      <div class="why-desc">No onion or garlic even in our regular menus. Cow ghee, filtered water and same-day fresh produce. Always.</div>
+    </div>
+    <div class="why-card fade-in">
+      <span class="why-icon">⏱</span>
+      <div class="why-title">Menu in 24 Hours</div>
+      <div class="why-desc">Tell us your date, guest count and traditions. We'll craft a fully customised menu and quote within one day.</div>
+    </div>
+    <div class="why-card fade-in">
+      <span class="why-icon">🌍</span>
+      <div class="why-title">India & USA Coverage</div>
+      <div class="why-desc">Serving Vijayawada, Guntur, Bangalore and California. Whether your family is here or abroad, we bring the same kitchen to your door.</div>
+    </div>
+    <div class="why-card fade-in">
+      <span class="why-icon">🍽</span>
+      <div class="why-title">Occasion-Specific Expertise</div>
+      <div class="why-desc">Weddings need different rhythms than pujas. We understand the customs, timing and prasad requirements of each ceremony.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="section section-center" style="background:var(--cream2)" id="compare">
+  <p class="section-label">तुलना</p>
+  <h2 class="section-title">How we compare</h2>
+  <p class="section-sub">No other caterer goes this far for vegetarian and Jain guests.</p>
+  <div class="compare-wrap fade-in">
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>100% Pure Veg</th>
+          <th>Jain Kitchen</th>
+          <th>Regional Traditions</th>
+          <th>India + USA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>⭐ Shubh Bhojan</td>
+          <td><span class="check-yes">✔</span></td>
+          <td><span class="check-yes">✔ Dedicated</span></td>
+          <td><span class="check-yes">✔ 5 traditions</span></td>
+          <td><span class="check-yes">✔</span></td>
+        </tr>
+        <tr>
+          <td>Typical Veg Caterer</td>
+          <td><span class="check-yes">✔</span></td>
+          <td><span class="check-part">⚬ Option only</span></td>
+          <td><span class="check-no">✗</span></td>
+          <td><span class="check-no">✗</span></td>
+        </tr>
+        <tr>
+          <td>Swiggy / Zomato</td>
+          <td><span class="check-part">⚬ Mixed kitchens</span></td>
+          <td><span class="check-no">✗ Not guaranteed</span></td>
+          <td><span class="check-no">✗</span></td>
+          <td><span class="check-no">✗ India only</span></td>
+        </tr>
+        <tr>
+          <td>Uber Eats</td>
+          <td><span class="check-part">⚬ Mixed kitchens</span></td>
+          <td><span class="check-no">✗</span></td>
+          <td><span class="check-no">✗</span></td>
+          <td><span class="check-part">⚬ No India</span></td>
+        </tr>
+        <tr>
+          <td>Generic Caterer</td>
+          <td><span class="check-no">✗ Also non-veg</span></td>
+          <td><span class="check-no">✗</span></td>
+          <td><span class="check-no">✗</span></td>
+          <td><span class="check-no">✗</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="section-center">
+    <p class="section-label">प्रशंसा</p>
+    <h2 class="section-title">What families say</h2>
+    <p class="section-sub">Real words from real occasions.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card fade-in">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">Finally a caterer who truly understands Jain requirements. Separate utensils, separate staff, Chauvihar service — everything was as promised. Our guests were moved.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">S</div>
+        <div><div class="testi-name">Suresh Mehta</div><div class="testi-event">Jain Wedding, Bangalore</div></div>
+      </div>
+    </div>
+    <div class="testi-card fade-in">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">The Iyer thali at my son's Upanayanam was exactly like my mother-in-law's cooking. The Maharaj cook even knew the traditional madi rules. Absolutely outstanding.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">L</div>
+        <div><div class="testi-name">Lalitha Subramaniam</div><div class="testi-event">Upanayanam, Vijayawada</div></div>
+      </div>
+    </div>
+    <div class="testi-card fade-in">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">We had 600 guests for our wedding in California. Shubh Bhojan flew in their cooks and the food was authentic — Boondi Laddu, Dal Baati, live chaat station. Extraordinary.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">P</div>
+        <div><div class="testi-name">Priya & Anand Sharma</div><div class="testi-event">Wedding, California</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" style="background:var(--cream2)">
+  <div class="section-center">
+    <p class="section-label">प्रश्न</p>
+    <h2 class="section-title">Questions, answered</h2>
+    <p class="section-sub">Everything you need before you book.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How early should I book? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">We recommend booking at least 3–4 weeks in advance for weddings and large events, and 1 week for pujas or smaller gatherings. We'll do our best to accommodate last-minute requests too.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is your Jain kitchen truly separate? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Yes — completely. Our Jain station has its own utensils, cutting boards, burners, staff, and a separate ingredient supply chain sourced from certified Jain-approved suppliers. There is zero cross-contact with our regular vegetarian kitchen.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can you cater in California? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Yes! We serve Bay Area families and can also fly our Maharaj cooks to other US cities for special events. Contact us with your location and date for availability.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do you handle multi-day events like weddings? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Our team handles the full span — from the mehendi function to the reception. We manage separate menus for each day, coordinate with the venue, and assign a dedicated event lead who stays on site throughout.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can you accommodate mixed dietary guests? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Absolutely. We regularly serve events where some guests are strict Jain, some are regular vegetarians, and some prefer South Indian-style cooking. Each section is prepared and served separately with clear labelling.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What's the minimum guest count? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">We cater from as few as 30 guests for intimate family pujas, up to 1,000+ for large weddings. Pricing scales accordingly — reach out for a custom quote.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div>
+      <h2 class="contact-title">Plan Your Bhojan</h2>
+      <p class="contact-desc">Tell us your date, guest count and dietary preferences — we'll craft a menu within 24 hours.</p>
+      <div class="contact-cards">
+        <a class="contact-card" href="tel:+916360270261">
+          <span class="contact-card-icon">📞</span>
+          <div>
+            <div class="contact-card-label">India</div>
+            <div class="contact-card-val">+91 63602 70261</div>
+          </div>
+        </a>
+        <a class="contact-card" href="tel:+16122984746">
+          <span class="contact-card-icon">📞</span>
+          <div>
+            <div class="contact-card-label">USA</div>
+            <div class="contact-card-val">+1 612 298 4746</div>
+          </div>
+        </a>
+        <a class="contact-card" href="mailto:bookings@shubhbhojan.in">
+          <span class="contact-card-icon">✉️</span>
+          <div>
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-val">bookings@shubhbhojan.in</div>
+          </div>
+        </a>
+        <a class="contact-card" href="https://wa.me/916360270261" target="_blank" style="background:rgba(37,211,102,.12);border-color:rgba(37,211,102,.3)">
+          <span class="contact-card-icon">💬</span>
+          <div>
+            <div class="contact-card-label">WhatsApp — India</div>
+            <div class="contact-card-val">+91 63602 70261</div>
+          </div>
+        </a>
+        <a class="contact-card" href="https://wa.me/16122984746" target="_blank" style="background:rgba(37,211,102,.12);border-color:rgba(37,211,102,.3)">
+          <span class="contact-card-icon">💬</span>
+          <div>
+            <div class="contact-card-label">WhatsApp — USA</div>
+            <div class="contact-card-val">+1 612 298 4746</div>
+          </div>
+        </a>
+        <div class="contact-card" style="cursor:default">
+          <span class="contact-card-icon">📍</span>
+          <div>
+            <div class="contact-card-label">Serving</div>
+            <div class="contact-card-val">Vijayawada · Guntur · Bangalore · California</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:2rem">
+        <div style="font-family:'Yeseva One',serif;font-size:1.1rem;color:var(--gold-light);margin-bottom:1.5rem">Request a Custom Quote</div>
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group"><label>Your Name</label><input type="text" placeholder="Ramesh Kumar"/></div>
+            <div class="form-group"><label>Phone</label><input type="tel" placeholder="+91 ..."/></div>
+          </div>
+          <div class="form-group"><label>Event Type</label>
+            <select>
+              <option value="">Select occasion</option>
+              <option>Wedding</option>
+              <option>Puja / Havan</option>
+              <option>Upanayanam</option>
+              <option>Griha Pravesh</option>
+              <option>Birthday / Namkaran</option>
+              <option>Temple Event</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Event Date</label><input type="date"/></div>
+            <div class="form-group"><label>Guest Count</label><input type="number" placeholder="e.g. 200"/></div>
+          </div>
+          <div class="form-group"><label>Dietary Requirements</label>
+            <select>
+              <option>Pure Vegetarian</option>
+              <option>Strict Jain</option>
+              <option>Mixed (Veg + Jain)</option>
+              <option>Sattvic only</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message (optional)</label><textarea placeholder="Any special requests, traditions or notes..."></textarea></div>
+          <button class="form-submit" onclick="alert('Thank you! We will get back to you within 24 hours. 🙏')">Send Request →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem">
+        <span style="font-size:1.5rem">🪔</span>
+        <div>
+          <div class="logo-name" style="font-family:'Yeseva One',serif;font-size:1.2rem;color:#fff">Shubh Bhojan</div>
+          <div class="logo-tagline" style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">शुभ भोजन • सात्त्विक आहार</div>
+        </div>
+      </div>
+      <p class="footer-tagline">Pure vegetarian and Jain catering, cooked with devotion across Vijayawada, Guntur, Bangalore and California.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <div class="footer-links">
+        <a href="#menus">Signature Menus</a>
+        <a href="#jain">Jain Kitchen</a>
+        <a href="#occasions">Occasions</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Book Catering</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-links">
+        <a href="tel:+916360270261">+91 63602 70261 (India)</a>
+        <a href="tel:+16122984746">+1 612 298 4746 (USA)</a>
+        <a href="mailto:bookings@shubhbhojan.in">bookings@shubhbhojan.in</a>
+        <a href="https://wa.me/916360270261" target="_blank">WhatsApp — India 🇮🇳</a>
+        <a href="https://wa.me/16122984746" target="_blank">WhatsApp — USA 🇺🇸</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Shubh Bhojan Catering</span>
+    <span class="footer-mantra">सर्वे भवन्तु सुखिनः</span>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE BAR -->
+<div class="sticky-bar">
+  <a class="sticky-bar-cta" href="#contact">Book Catering</a>
+  <a class="sticky-bar-wa" href="https://wa.me/916360270261" target="_blank" title="WhatsApp India">💬</a>
+  <a class="sticky-bar-wa" href="https://wa.me/16122984746" target="_blank" title="WhatsApp USA" style="background:#1a9e4a">💬</a>
+</div>
+
+<script>
+// Diet toggle
+function switchDiet(tier, diet, btn){
+  ['veg','jain','mixed'].forEach(d=>{
+    const el=document.getElementById(tier+'-'+d);
+    if(el) el.style.display = d===diet ? 'flex' : 'none';
+  });
+  // update active button
+  btn.closest('.diet-toggle').querySelectorAll('.diet-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+// init all menu items as flex
+document.querySelectorAll('.menu-items').forEach(el=>{
+  if(el.style.display==='') el.style.display='flex';
+  el.style.flexDirection='column';
+});
+
+
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const allItems=document.querySelectorAll('.faq-item');
+  allItems.forEach(i=>{if(i!==item){i.classList.remove('open')}});
+  item.classList.toggle('open');
+}
+
+// Intersection Observer for fade-ins
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
+},{threshold:0.12});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+// Nav mobile: close on link click
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    if(window.innerWidth<=900) document.querySelector('.nav-links').style.display='none';
+  });
+});
+</script>
+</body>
+</html>
